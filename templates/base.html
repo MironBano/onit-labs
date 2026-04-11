@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Заметки{% endblock %} — ОНИТ</title>
+  <style>
+    :root { font-family: system-ui, sans-serif; line-height: 1.45; }
+    body { max-width: 720px; margin: 2rem auto; padding: 0 1rem; color: #1a1a1a; }
+    a { color: #0b57d0; }
+    header { margin-bottom: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.75rem; }
+    .btn { display: inline-block; padding: 0.35rem 0.75rem; background: #0b57d0; color: #fff !important; text-decoration: none; border-radius: 6px; border: none; cursor: pointer; font-size: 0.95rem; }
+    .btn.secondary { background: #5f6368; }
+    .btn.danger { background: #c5221f; }
+    label { display: block; margin-top: 0.75rem; font-weight: 600; }
+    input[type="text"], textarea { width: 100%; box-sizing: border-box; padding: 0.5rem; margin-top: 0.25rem; }
+    textarea { min-height: 120px; }
+    ul.notes { list-style: none; padding: 0; }
+    ul.notes li { border: 1px solid #e0e0e0; border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 0.75rem; }
+    .row { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>ОНИТ — ЛР1–2</strong> · <a href="/">Все заметки</a>
+  </header>
+  <main>{% block content %}{% endblock %}</main>
+</body>
+</html>

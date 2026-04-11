@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{% if note %}Редактирование{% else %}Новая{% endif %}{% endblock %}
+{% block content %}
+<h1>{% if note %}Редактировать{% else %}Новая заметка{% endif %}</h1>
+<form method="post" action="{% if note %}/notes/{{ note.id }}/edit{% else %}/notes/new{% endif %}">
+  <label for="title">Заголовок</label>
+  <input id="title" name="title" type="text" required value="{{ note.title if note else '' }}" />
+  <label for="body">Текст</label>
+  <textarea id="body" name="body">{{ note.body if note else '' }}</textarea>
+  <div class="row" style="margin-top:1rem;">
+    <button type="submit" class="btn">Сохранить</button>
+    <a class="btn secondary" href="/">Отмена</a>
+  </div>
+</form>
+{% endblock %}

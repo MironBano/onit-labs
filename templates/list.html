@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Список{% endblock %}
+{% block content %}
+<h1>Заметки</h1>
+<p><a class="btn" href="/notes/new">Новая заметка</a></p>
+{% if notes %}
+<ul class="notes">
+  {% for n in notes %}
+  <li>
+    <strong>{{ n.title }}</strong>
+    {% if n.body %}<div>{{ n.body }}</div>{% endif %}
+    <div class="row">
+      <a class="btn secondary" href="/notes/{{ n.id }}/edit">Изменить</a>
+      <form method="post" action="/notes/{{ n.id }}/delete" onsubmit="return confirm('Удалить заметку?');">
+        <button type="submit" class="btn danger">Удалить</button>
+      </form>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>Пока нет заметок. Создайте первую.</p>
+{% endif %}
+{% endblock %}
